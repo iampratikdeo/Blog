@@ -17,12 +17,17 @@ app.use(express.static("public"));
 
 
 app.get("/", function(req, res){
-  res.render("home");
 
   res.render("home", {homeStartContent: homeStartingContent});
 });
 
+app.get("/about", function(req, res){
+  res.render("about", {aboutA: aboutContent});
+});
 
+app.get("/contact", function(req, res){
+  res.render("contact", {contactC: contactContent});
+});
 
 
 
