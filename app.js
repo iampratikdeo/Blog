@@ -29,6 +29,9 @@ app.get("/contact", function(req, res){
   res.render("contact", {contactC: contactContent});
 });
 
+app.get("/compose", function(req,res){
+  res.render("compose");
+});
 
 
 
