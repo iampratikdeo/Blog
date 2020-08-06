@@ -1,9 +1,18 @@
 <%- include("partials/header") -%>
 
+
+<h1>Compose</h1>
 <div class="">
-  <h1>Compose</h1>
-  <input type="text" name="" value="">
-  <button type="submit" name="button">Publish</button>
+
+  <name class="titleName" >Title</name><br>
+
+  <form class="" action="/compose" method="post" >
+    <input class = "text-area" type="text" name="postTitle" autocomplete="off"><br>
+    <name class="titleName">Post</name> <br>
+    <textarea name="texta" class="text-area" rows="5" cols="80" style ="width: 100%"></textarea><br>
+    <br><button type="submit" class = "btn btn-primary" name="button">Publish</button>
+  </form>
+
 </div>
 
 <%- include("partials/footer") -%>
