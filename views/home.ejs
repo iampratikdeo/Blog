@@ -5,10 +5,16 @@
   <p> <%= homeStartContent %> </p>
 </div>
 
-  <% posts.forEach(function(element){ %>
-    <h1> <%= element.postTitle; %></h1>
-    <p> <%= element.textbody; %></p>
-    <% }); %>
+  <% posts.forEach(function(ele) { %>
+
+    <div class="">
+      <h1><%= ele.postTitle %></h1>
+      <p> <%= ele.textbody.substring(0,100) + " ..." %>
+        <a href="/posts/<%= ele.postTitle %> ">Read More</a>
+      </p>
+    </div>
+
+<%  }); %>
 
 
 
