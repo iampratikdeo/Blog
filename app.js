@@ -16,6 +16,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 var posts = [];
 
+
+//route for home page & renders static home and its content
 app.get("/", function(req, res){
 
   res.render("home", {
@@ -24,18 +26,24 @@ app.get("/", function(req, res){
   });
 });
 
+// Route for about page
 app.get("/about", function(req, res){
   res.render("about", {aboutA: aboutContent});
 });
 
+//Route for contact page
 app.get("/contact", function(req, res){
   res.render("contact", {contactC: contactContent});
 });
 
+//route for compose page
 app.get("/compose", function(req,res){
   res.render("compose");
 });
 
+// Post route for compose page, takes title and post in JS object format
+// and pushes object into a global array that stores this objects
+// redirects to home page after
 app.post("/compose", function(req,res){
   const composeContent = {
     postTitle: req.body.postTitle ,
@@ -45,8 +53,13 @@ app.post("/compose", function(req,res){
   res.redirect("/");
 });
 
+// Route for dynamic posts pages 
 app.get("/posts/:day", function(req, res){
-  console.log(req.params.day);
+
+    if (req.params.day === "Test") {
+      console.log("Match Found!");
+    }
+
 });
 
 app.listen(3000, function() {
