@@ -14,11 +14,14 @@ app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
-
+var posts = [];
 
 app.get("/", function(req, res){
 
-  res.render("home", {homeStartContent: homeStartingContent});
+  res.render("home", {
+    homeStartContent: homeStartingContent,
+    posts: posts
+  });
 });
 
 app.get("/about", function(req, res){
@@ -34,18 +37,17 @@ app.get("/compose", function(req,res){
 });
 
 app.post("/compose", function(req,res){
-  var composeContent = {
+  const composeContent = {
     postTitle: req.body.postTitle ,
     textbody: req.body.texta
   };
-  console.log(composeContent);
+  posts.push(composeContent);
+  res.redirect("/");
 });
 
-
-
-
-
-
+app.get("/posts/:day", function(req, res){
+  console.log(req.params.day);
+});
 
 app.listen(3000, function() {
   console.log("Server started on port 3000");

@@ -5,4 +5,11 @@
   <p> <%= homeStartContent %> </p>
 </div>
 
+  <% posts.forEach(function(element){ %>
+    <h1> <%= element.postTitle; %></h1>
+    <p> <%= element.textbody; %></p>
+    <% }); %>
+
+
+
 <%- include("partials/footer") -%>
